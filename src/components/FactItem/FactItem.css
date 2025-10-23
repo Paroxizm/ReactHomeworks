@@ -1,0 +1,23 @@
+﻿.fact-item {
+    border-radius: 3px;
+    border: 1px solid #ccc;
+    margin: 2px;
+    padding: 5px 10px;
+    background: #F8F8F8;
+    vertical-align: center;
+    display: flex;
+    flex-direction: row;
+}
+
+.fact-item-text {
+    margin-left: 10px;
+    width: 100%;    
+}
+
+.fact-item-logo {
+    background-image: url("../../assets/cat.png");
+    background-repeat: no-repeat;
+    background-size: max(100%, 100%);
+    background-position: center;
+    width: 32px;
+}

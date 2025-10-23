@@ -1,0 +1,7 @@
+﻿.waiter {
+    width: 20em;
+    height: 1em;
+    background-image: url("../../assets/waiter.gif");
+    background-repeat: no-repeat;
+    background-position: center;
+}

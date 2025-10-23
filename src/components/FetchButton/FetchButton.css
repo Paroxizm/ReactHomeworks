@@ -1,0 +1,11 @@
+﻿.fetch-button-inactive {
+    background-color: var(--inactive-button-background-color);
+    color: var(--inactive-button-color);
+    width: 15em;
+}
+
+.fetch-button-active {
+    background-color: var(--active-button-background-color);
+    color: var(--active-button-color);
+    width: 15em;
+}
