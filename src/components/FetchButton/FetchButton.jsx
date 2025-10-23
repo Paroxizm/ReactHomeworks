@@ -2,8 +2,9 @@
 import axios from "axios";
 import PropTypes from "prop-types";
 import "./FetchButton.css"
+import WaiterImage from '../../assets/stripes.gif';
 
-function FetchButton({url, onFactsLoaded, onError, onLoading, timeout}) {
+function FetchButton({url, onFactsLoaded, onError, timeout}) {
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
@@ -14,7 +15,6 @@ function FetchButton({url, onFactsLoaded, onError, onLoading, timeout}) {
         setLoading(true);
         onFactsLoaded([]);
         onError(false, undefined);
-        onLoading(true);
         
         axios.get(url, {
             timeout: timeout
@@ -28,7 +28,6 @@ function FetchButton({url, onFactsLoaded, onError, onLoading, timeout}) {
             .then(response => {
                 onFactsLoaded(response.data);
                 setLoading(false);
-                onLoading(false);
             })
             .catch(error => {
                
@@ -43,7 +42,6 @@ function FetchButton({url, onFactsLoaded, onError, onLoading, timeout}) {
                 
                 onFactsLoaded([]);
                 onError(true, errorMessage);
-                onLoading(false);                
                 setLoading(false);
             });
     }
@@ -51,8 +49,13 @@ function FetchButton({url, onFactsLoaded, onError, onLoading, timeout}) {
     return (
 
         <button className={loading ? "fetch-button-inactive" : "fetch-button-active"} onClick={fetchData} disabled={loading}>
-            <div >
-                {loading ? "Загрузка..." : "Загрузить данные"}
+            <div>
+                <div>
+                    {loading ? "Загрузка..." : "Загрузить данные"}
+                </div>
+                <div className={loading ? "fetch-button-waiter-active" : "fetch-button-waiter-inactive"}>
+                    <img src={WaiterImage} alt="" />
+                </div>
             </div>
         </button>
 
@@ -63,7 +66,6 @@ FetchButton.propTypes = {
     url: PropTypes.string.isRequired,
     onFactsLoaded: PropTypes.func.isRequired,
     onError: PropTypes.func.isRequired,
-    onLoading: PropTypes.func.isRequired,
     timeout: PropTypes.number.isRequired
 }
 

@@ -3,17 +3,17 @@ import FactItem from '../FactItem/FactItem.jsx'
 import "./FactList.css"
 
 function FactList({facts}) {
-    
+
     return (
         <div className={"fact-list"}>
-        <ul>
-            {facts.map((fact) =>
-                (
-                    <li key={fact.fact}>
-                        <FactItem fact={fact.fact}/>
-                    </li>
-                ))}
-        </ul>
+            <ul>
+                {facts.map((fact) =>
+                    (
+                        <li key={fact.fact}>
+                            <FactItem fact={fact.fact}/>
+                        </li>
+                    ))}
+            </ul>
         </div>
     )
 }

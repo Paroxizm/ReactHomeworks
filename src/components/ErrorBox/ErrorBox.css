@@ -7,3 +7,12 @@
     padding: 10px;
     margin: 1em;
 }
+
+
+@media (prefers-color-scheme: dark) {
+    .error-box{
+        background: #333333;
+        border: 1px solid #444444;
+        color: #933;
+    }
+}

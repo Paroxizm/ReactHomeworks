@@ -11,11 +11,14 @@
   flex-direction: row;
 }
 
+.facts-container > div{
+    width: calc(50% - 5px);
+}
+
 .root-container{
   display: flex;
   flex-direction: column;
   text-align: center;
-  border: #C00 1px solid;
 }
 
 .logo {
