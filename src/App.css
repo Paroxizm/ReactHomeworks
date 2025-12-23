@@ -3,22 +3,6 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
-  vertical-align: top;
-}
-
-.facts-container{
-  display: flex;
-  flex-direction: row;
-}
-
-.facts-container > div{
-    width: calc(50% - 5px);
-}
-
-.root-container{
-  display: flex;
-  flex-direction: column;
-  text-align: center;
 }
 
 .logo {
@@ -56,5 +40,3 @@
 .read-the-docs {
   color: #888;
 }
-
-

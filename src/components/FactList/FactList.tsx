@@ -1,8 +1,12 @@
-﻿import PropTypes from 'prop-types'
-import FactItem from '../FactItem/FactItem.jsx'
+﻿import FactItem from '../FactItem/FactItem.jsx'
 import "./FactList.css"
+import type {Fact} from "../Fact.ts";
 
-function FactList({facts}) {
+export interface FactListProps{
+    facts: Array<Fact>
+}
+
+function FactList({facts} : FactListProps) {
 
     return (
         <div className={"fact-list"}>
@@ -17,12 +21,5 @@ function FactList({facts}) {
         </div>
     )
 }
-
-FactList.propTypes = {
-    facts: PropTypes.arrayOf(PropTypes.shape({
-        fact: PropTypes.string,
-        length: PropTypes.number
-    })).isRequired
-};
 
 export default FactList
