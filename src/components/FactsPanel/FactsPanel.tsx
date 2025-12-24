@@ -1,17 +1,22 @@
-﻿import ErrorBox from "../ErrorBox/ErrorBox.jsx";
-import FactList from "../FactList/FactList.jsx";
-import FetchButton from "../FetchButton/FetchButton.jsx";
-import PropTypes from "prop-types";
+﻿import ErrorBox from "../ErrorBox/ErrorBox.tsx";
+import FactList from "../FactList/FactList.tsx";
+import FetchButton from "../FetchButton/FetchButton.tsx";
 import React from "react";
 import "./FactsPanel.css"
+import type {Fact} from "../Fact.ts";
 
-function FactsPanel({ url, timeout }) {
-    const [facts, setFacts] = React.useState([]);
+export type FactsPanelProps = {
+    url: string,
+    timeout: number
+}
+
+const FactsPanel = ({ url, timeout } : FactsPanelProps) => {
+    const [facts, setFacts] = React.useState<Array<Fact>>([]);
     const [errorMessage, setErrorMessage] = React.useState("");
     const [isError, setIsError] = React.useState(false);
     
-    const onFactsLoaded = (facts) => setFacts(facts);
-    const onFactsLoadError = (isError, errorMsg) => {
+    const onFactsLoaded = (facts : Array<Fact>) => setFacts(facts);
+    const onFactsLoadError = (isError : boolean, errorMsg : string) => {
         setErrorMessage(errorMsg);
         setIsError(isError);
     };        
@@ -25,11 +30,6 @@ function FactsPanel({ url, timeout }) {
             <FactList facts={facts} />
         </div>
     )
-}
-
-FactsPanel.propTypes = {
-    url: PropTypes.string.isRequired,
-    timeout: PropTypes.number.isRequired,
 }
 
 export default FactsPanel;
